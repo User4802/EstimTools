@@ -14,3 +14,11 @@ BaseSolver
   - v 0.2
     - Menu revamp
     - carpet calc deployed
+
+
+Project Deploy Kit
+
+create a files structure with the specified name then add subfolder.
+
+  - V 0.3
+    - Basic Feature 
