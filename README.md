@@ -21,4 +21,11 @@ Project Deploy Kit
 create a files structure with the specified name then add subfolder.
 
   - V 0.3
-    - Basic Feature 
+    - Basic Feature
+  - V 0.4
+    - added support from express deploy from argv
+  - V 0.45
+    - added support for basic and custom structure
+    - improved user experience
+    - added info init from argv
+        - this command result in the basic deploy being used

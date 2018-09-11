@@ -1,6 +1,6 @@
 version = "v0.2"
 
-def carpet_calc():
+def calc():
     cpt_lenght = float(input("Enter the full lengt needed   "))
     cpt_lenght_unit = input("Enter the unit used   ")
     base_height = float(input("Enter The desired height in inch   "))

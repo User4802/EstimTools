@@ -1,4 +1,4 @@
-version = "0.3"
+version = "0.4"
 
 from sys import argv
 script, initMethod = argv
@@ -40,6 +40,7 @@ def methodExpress():
     os.mkdir(express_path + "/documents")
     os.mkdir(express_path + "/soumission")
     os.mkdir(express_path + "/cotations")
+    os.mkdir(express_path + "/dossier")
 
 def methodChoice(im):
     if im == "basic":
