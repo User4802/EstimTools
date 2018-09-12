@@ -25,7 +25,8 @@ create a files structure with the specified name then add subfolder.
   - V 0.4
     - added support from express deploy from argv
   - V 0.45
-    - added support for basic and custom structure
-    - improved user experience
-    - added info init from argv
-        - this command result in the basic deploy being used
+    - Added support for basic structure creation
+    - Improved user experience
+  - v 0.46
+    - Added info init from argv
+        - This command result in the basic deploy being used
