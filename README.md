@@ -28,5 +28,5 @@ create a files structure with the specified name then add subfolder.
     - Added support for basic structure creation
     - Improved user experience
   - v 0.46
-    - Added info init from argv
-        - This command result in the basic deploy being used
+    - Loop subfolder creation to increase code readability
+    - created screen print function
