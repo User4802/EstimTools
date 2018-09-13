@@ -1,4 +1,4 @@
-version = "0.45"
+version = "0.46"
 
 from sys import argv
 script, deployType = argv
@@ -6,47 +6,48 @@ import os
 
 userType = str(deployType)
 localDir = os.getcwd()
+default_struct = ["plans", "documents", "soumission", "cotations", "dossier",]
 
+# SCREEN PRINT
+
+def screenPrint(type, dir):
+
+    print("\nThe following folder : {0}, have been created at this location: {1}\n".format(type, dir))  #PRINT THE COMPLETED MESSAGE
 
 # EXPRESS DEPLOY BELOW THIS LINE
 
-def methodExpress(type, dir): #CREATE THE STRUCTURE IN THE CURRENT DIRECTORY, FOLDER NAME SPECIFIED IN THE ARGV
+def methodExpress(type, dir, default):  #CREATE THE STRUCTURE IN THE CURRENT DIRECTORY, FOLDER NAME SPECIFIED IN THE ARGV
 
-    express_path = dir + "/" + type
-    os.mkdir(express_path)
-    os.mkdir(express_path + "/plans")
-    os.mkdir(express_path + "/documents")
-    os.mkdir(express_path + "/soumission")
-    os.mkdir(express_path + "/cotations")
-    os.mkdir(express_path + "/dossier")
+    express_dir = dir + "/" + type  #CONCAT THE CWD, / AND THE SPEFIFIED FOLDER NAME IN ARGV
+    os.mkdir(express_dir)   #CREATE THE FOLDER
+    for names in default:   #loop the the element of the default array to create each subfolder
+        os.mkdir(express_dir + "/" + names)
 
-    print("\nThe following folder : {0}, have been created at this location: {1}\n".format(type, dir))
+    screenPrint(type, dir)  #PRINT FONCTION CALL
 
 # BASIC DEPLOY BELOW THIS LINE
 
-def methodBasic(): #CREATE THE STRUCTURE IN A USER SPECIFIED DIRECTORY
+def methodBasic(default): #CREATE THE STRUCTURE IN A USER SPECIFIED DIRECTORY
 
-    print("Project Deploy Kit V{0}".format(version))
+    print("Project Deploy Kit V{0}".format(version))    #indicate that the script is running and display version
 
-    basic_choice = input("Use the current directory or specify a new one ? ")
+    basic_choice = input("Use the current directory or specify a new one ? ")   #USER CHOICE ABOUT THE CREATION LOCATION
 
-    if basic_choice == "current":
-        basic_current = os.getcwd()
-        basic_folder = str(input("folder name ? "))
-        basic_path = basic_current + "/" + basic_folder
-        os.mkdir(basic_path)
-        os.mkdir(basic_path + "/plans")
-        os.mkdir(basic_path + "/documents")
-        os.mkdir(basic_path + "/soumission")
-        os.mkdir(basic_path + "/cotations")
-        os.mkdir(basic_path + "/dossier")
+    if basic_choice == "current":   #IF CURRENT FOLDER IS CHOSEN
 
-        print("\nThe following folder : {0}, have been created at this location: {1}\n".format(basic_folder, basic_current))
+        basic_current = os.getcwd() #GET THE CWD
+        basic_folder = str(input("folder name ? ")) #ASK FOR THE FOLDER NAME
+        basic_path = basic_current + "/" + basic_folder #CONCAT THE CWD, / AND THE USER FOLDER NAME
+        os.mkdir(basic_path)    #CREATE THE FOLDER
+        for names in default:   #loop the the element of the default array to create each subfolder
+            os.mkdir(basic_path + "/" + names)
 
-    elif basic_choice == "new":
+        screenPrint(basic_folder, basic_current)#PRINT FONCTION CALL
+
+    elif basic_choice == "new": #IF NEW FOLDER IS CHOSEN
         print("new")
     else:
-        print("not a valid input")
+        print("not a valid input")  # WRONG INPUT AND FUNCTION RECALL
         methodBasic()
 
 # CUSTOM DEPLOY BELOW THIS LINE
@@ -56,16 +57,16 @@ def methodCustom(): #CREATE THE STRUCTURE IN A USER SPECIFIED DIRECTORY + CUSTOM
 
 # CHOICE EVALUATING below this line
 
-def methodChoice(type, dir):
+def methodChoice(type, dir, default):
     if type == "basic":
         #run the basic setup
-        methodBasic()
+        methodBasic(default)
     elif type == "custom":
         #run the custom setup
         methodCustom()
     else:
         # run the express setup
-        methodExpress(type, dir)
+        methodExpress(type, dir, default)
 
 
-methodChoice(userType, localDir)
+methodChoice(userType, localDir, default_struct)
