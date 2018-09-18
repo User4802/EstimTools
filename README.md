@@ -20,13 +20,16 @@ Project Deploy Kit
 
 create a files structure with the specified name then add subfolder.
 
-  - V 0.3
+  - V 0.3R
     - Basic Feature
-  - V 0.4
+  - V 0.4R
     - added support from express deploy from argv
-  - V 0.45
+  - V 0.45R
     - Added support for basic structure creation
     - Improved user experience
-  - v 0.46
+  - v 0.46R
     - Loop subfolder creation to increase code readability
     - created screen print function
+  - v 0.47A
+    - added support for Notes Template creation
+      - Will create the file by default following the chosen deployement 
