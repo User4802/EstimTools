@@ -3,6 +3,7 @@ version = "0.46"
 from sys import argv
 script, deployType = argv
 import os
+import filesCreation
 
 userType = str(deployType)
 localDir = os.getcwd()
@@ -23,6 +24,7 @@ def methodExpress(type, dir, default):  #CREATE THE STRUCTURE IN THE CURRENT DIR
     for names in default:   #loop the the element of the default array to create each subfolder
         os.mkdir(express_dir + "/" + names)
 
+    filesCreation.notesTemps(express_dir)
     screenPrint(type, dir)  #PRINT FONCTION CALL
 
 # BASIC DEPLOY BELOW THIS LINE
