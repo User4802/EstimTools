@@ -15,17 +15,23 @@ splash = "\n{} {} {} {}\n".format(spacer,module,version,spacer)
 
 print(splash)
 
+def htmlExport(newAdd):
+    with open("block.html", "a") as index:
+        add = "<p>{0}</p>\n".format(newAdd)
+        index.write(add)
+
 def ajout():
     print("----- Mode Ajout -----")
-    prName = input("name ")
-    prGen = input("general ")
-    prAdr = input("adress ")
-    prPostal = input("code postal ")
-    prDate = input("date de fermeture ")
-    prFull = "{}, {}, {}, {}, {}\n".format(prName,prGen,prAdr,prPostal,prDate)
+    prName = input("Nom Du Projet\n ")
+    prGen = input("Entrepreneur Général\n ")
+    prAdr = input("Adresse Du Projet\n ")
+    prVend = input("Vendeur\n ")
+    prDate = input("date De Fermeture\n ")
+    prFull = "{} -- {} -- {} -- {} -- {}\n".format(prName,prGen,prAdr,prVend,prDate)
     with open("projet.txt", "a") as file:
         file.write(prFull)
     user_input()
+    htmlExport(prFull)
 
 def voir():
     print("----- Mode Voir -----\n")
