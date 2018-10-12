@@ -1,13 +1,57 @@
-version = "0.46"
+version = "0.48A"
 
 from sys import argv
 script, deployType = argv
 import os
-import filesCreation
 
 userType = str(deployType)
 localDir = os.getcwd()
 default_struct = ["plans", "documents", "soumission", "cotations", "dossier",]
+
+
+# FILECREATION
+
+def notesTemps(p):
+    fileName = "notes.txt"
+    path = p +"/" + fileName
+    output = ("""
+------
+Remise
+------
+
+
+-----------
+Info Projet
+-----------
+
+
+
+--------
+Produits
+--------
+
+
+
+-----
+Notes
+-----
+
+
+
+---
+QRT
+---
+
+
+---------------
+Demande de prix
+---------------
+
+
+
+    """)
+    file = open(path, 'x')
+    file.write(output)
 
 # SCREEN PRINT
 
@@ -24,7 +68,7 @@ def methodExpress(type, dir, default):  #CREATE THE STRUCTURE IN THE CURRENT DIR
     for names in default:   #loop the the element of the default array to create each subfolder
         os.mkdir(express_dir + "/" + names)
 
-    filesCreation.notesTemps(express_dir)
+    notesTemps(express_dir)
     screenPrint(type, dir)  #PRINT FONCTION CALL
 
 # BASIC DEPLOY BELOW THIS LINE
