@@ -9,7 +9,7 @@ localDir = os.getcwd()
 default_struct = ["plans", "documents", "soumission", "cotations", "dossier",]
 
 
-# FILECREATION
+# NOTESCREATION
 
 def notesTemps(p):
     fileName = "notes.txt"
