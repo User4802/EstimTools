@@ -7,7 +7,7 @@ class ProjectAdd:
     
     def addProject(self):
         projects = []
-        test = tuple(self.titre, self.general, self.date, self.vendeur)
+        test = tuple((self.titre, self.general, self.date, self.vendeur))
         projects.append(test)
         print(projects)
 
