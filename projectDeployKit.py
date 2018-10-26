@@ -6,7 +6,7 @@ import os
 
 userType = str(deployType)
 localDir = os.getcwd()
-default_struct = ["plans", "documents", "soumission", "cotations", "dossier",]
+default_struct = ["plans", "documents", "soumission", "cotations", "dossier", "devis" ]
 
 
 # NOTESCREATION
